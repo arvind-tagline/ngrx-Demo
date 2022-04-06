@@ -12,6 +12,8 @@ import { CustomCounterComponent } from './counter/custom-counter/custom-counter.
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { PostsListComponent } from './posts/posts-list/posts-list.component';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({ counter: counterReducer }),
-    FormsModule
+    FormsModule,
+    StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
