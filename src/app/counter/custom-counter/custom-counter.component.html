@@ -1,4 +1,8 @@
 <div>
+    <h1>{{(name$ |async)}}</h1>
     <input type="number" class="form-control w-25" [(ngModel)]="value">
-    <button class="btn btn-primary mt-2" (click)="add()">Add</button>
+    <button class="btn btn-primary m-2" (click)="add()" [disabled]="!value">Add</button>
+    <button class="btn btn-primary m-2" (click)="decrementValue()" [disabled]="!value">Decrement</button>
 </div>
+
+<button (click)="onChange()" class="btn btn-primary mt-2">Change Name</button>

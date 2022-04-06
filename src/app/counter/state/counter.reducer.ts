@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { customCount, decrement, increment, reset } from "./counter.actions";
+import { changeName, customCount, customCountDecriment, decrement, increment, reset } from "./counter.actions";
 import { initialState } from "./counter.state";
 
 const _counterReducer = createReducer(initialState,
@@ -25,6 +25,19 @@ const _counterReducer = createReducer(initialState,
         return {
             ...state,
             counter: state.counter+action.value
+        };
+    }),
+    on(customCountDecriment, (state, action) => {
+        return {
+            ...state,
+            counter: state.counter - action.value
+        };
+    }),
+    on(changeName, (state) => {
+        //changeName get form action
+        return {
+            ...state,
+            name: 'Maurya Arvind'
         };
     })
 );
