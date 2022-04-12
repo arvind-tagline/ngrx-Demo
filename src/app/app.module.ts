@@ -14,6 +14,8 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { postsReducer } from './posts/state/posts.reducer';
+import { appReducer } from './store/app.state';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter: counterReducer }),
+    // StoreModule.forRoot({ counter: counterReducer, posts:postsReducer }),
+    StoreModule.forRoot(appReducer),
     FormsModule,
     StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
