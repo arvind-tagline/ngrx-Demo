@@ -9,13 +9,14 @@ import { CounterButtonsComponent } from './counter/counter-buttons/counter-butto
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
 import { CustomCounterComponent } from './counter/custom-counter/custom-counter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { postsReducer } from './posts/state/posts.reducer';
 import { appReducer } from './store/app.state';
+import { AddPostComponent } from './posts/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { appReducer } from './store/app.state';
     CounterButtonsComponent,
     CustomCounterComponent,
     NavbarComponent,
-    PostsListComponent
+    PostsListComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { appReducer } from './store/app.state';
     // StoreModule.forRoot({ counter: counterReducer, posts:postsReducer }),
     StoreModule.forRoot(appReducer),
     FormsModule,
+    ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
   providers: [],
