@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  FIRBASE_API_KEY: 'AIzaSyA5qu2zwqnox56d2sXfVfM - B2oP6KIwBAE',
+  apiEndPoint: 'https://nodejsexamination.herokuapp.com'
 };
 
 /*

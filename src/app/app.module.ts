@@ -10,19 +10,26 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { appReducer } from './store/app.state';
 import { LoginComponent } from './auth/login/login.component';
+import { EffectsModule} from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerComponent } from './Shared/spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     // StoreModule.forRoot({ counter: counterReducer, posts:postsReducer }),
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ logOnly: environment.production })
   ],
