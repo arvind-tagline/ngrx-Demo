@@ -1,5 +1,5 @@
-<form [formGroup]="postForm">
-    <h1>Add Post</h1>
+<form [formGroup]="updateForm">
+    <h1>Update Post</h1>
     <div class="mb-3">
         <label class="form-label">Title</label>
         <input type="text" class="form-control" placeholder="Enter Title" formControlName="title">
@@ -8,5 +8,5 @@
         <label class="form-label">Description</label>
         <textarea class="form-control" placeholder="Enter Description" formControlName="description"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onAdd()" [disabled]="!postForm.valid">Add Post</button>
+    <button type="submit" class="btn btn-primary" (click)="onUpdate()" [disabled]="!updateForm.valid">Update Post</button>
 </form>

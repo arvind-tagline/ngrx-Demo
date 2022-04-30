@@ -6,13 +6,9 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
-import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { postsReducer } from './posts/state/posts.reducer';
 import { appReducer } from './store/app.state';
-import { AddPostComponent } from './posts/add-post/add-post.component';
-import { UpdatePostComponent } from './posts/update-post/update-post.component';
 
 @NgModule({
   declarations: [
