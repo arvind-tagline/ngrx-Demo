@@ -9,17 +9,19 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { appReducer } from './store/app.state';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     // StoreModule.forRoot({ counter: counterReducer, posts:postsReducer }),
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({}),
     FormsModule,
     ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ logOnly: environment.production })

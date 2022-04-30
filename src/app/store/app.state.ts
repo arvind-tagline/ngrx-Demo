@@ -1,5 +1,5 @@
-import { counterReducer } from "../counters/state/counter.reducer";
-import { CounterData } from "../counters/state/counter.state";
+import { counterReducer } from "../counter/state/counter.reducer";
+import { CounterData } from "../counter/state/counter.state";
 import { postsReducer } from "../posts/state/posts.reducer";
 import { PostStates } from "../posts/state/posts.state";
 
