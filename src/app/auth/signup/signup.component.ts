@@ -32,8 +32,9 @@ export class SignupComponent implements OnInit {
     const name = data.name;
     const email = data.email;
     const password = data.password;
+    const role= data.role;
     this.store.dispatch(loadingSpinner({ status: true }));
-    this.store.dispatch(signUpStart({name,email,password}));
+    this.store.dispatch(signUpStart({ name, email, password, role}));
     console.log('data', data)
   }
 }

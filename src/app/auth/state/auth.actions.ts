@@ -13,7 +13,7 @@ export const loginStart = createAction(LOGIN_START, props<{ email: any, password
 export const loginSuccess = createAction(LOGIN_SUCCESS,props<{user:User}>())
 export const loginFail = createAction(LOGIN_FAIL)
 
-export const signUpStart = createAction(SIGNUP_START, props<{name:any, email: any, password: any }>())
+export const signUpStart = createAction(SIGNUP_START, props<{name:any, email: any, password: any ,role:any}>())
 export const signUpSuccess = createAction(SIGNUP_SUCCESS, props<{ user: User }>())
 export const signUpFail = createAction(SIGNUP_FAIL)
 

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { loginStart, loginSuccess } from "./auth.actions";
+import { loginStart, loginSuccess, signUpStart, signUpSuccess } from "./auth.actions";
 import { exhaustMap, map, catchError, tap } from "rxjs";
 import { AuthService } from "src/app/service/auth.service";
 import { Store } from "@ngrx/store";
@@ -24,22 +24,44 @@ export class AuthEffects {
                 const user = this.authService.formatUser(data.data);
                 console.log('data', data);
                 console.log('user', user)
-                return loginSuccess({user})
+                return loginSuccess({ user })
             }),
-                catchError((err:any) => {
+                catchError((err: any) => {
                     console.log('err', err.error.error)
                     return of();
+                })
+            );
+        })
+        );
+    });
+
+    signUp$ = createEffect(() => {
+        return this.actions$.pipe(ofType(signUpStart), exhaustMap((actions: any) => {
+            console.log('actions :>> ', actions);
+            return this.authService.signUp(actions.name, actions.email, actions.password, actions.role).pipe(map((data) => {
+                console.log('data', data)
+                this.store.dispatch(loadingSpinner({ status: false }));
+                const user = this.authService.formatUserSignUp(data.data);
+                return signUpSuccess({ user })
             })
             );
         })
         );
-    })
+    });
 
-    redirect$ = createEffect(() => {
+    loginRedirect$ = createEffect(() => {
         return this.actions$.pipe(ofType(loginSuccess),
             tap((action) => {
                 this.router.navigate(['/post'])
             })
         )
-    },{dispatch:false});
+    }, { dispatch: false });
+
+    signUpRedirect$ = createEffect(() => {
+        return this.actions$.pipe(ofType(signUpSuccess),
+            tap((action) => {
+                this.router.navigate(['/auth/login']);
+            })
+        )
+    }, { dispatch: false });
 }
