@@ -7,6 +7,8 @@ import { UpdatePostComponent } from '../update-post/update-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { postsReducer } from '../state/posts.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ExamEffects } from 'src/app/ngrxWithApi/state/exam.effects';
 
 
 const routes: Routes = [
@@ -37,6 +39,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('posts', postsReducer),
+    EffectsModule.forFeature([ExamEffects])
 
   ]
 })

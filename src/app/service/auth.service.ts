@@ -51,6 +51,7 @@ export class AuthService {
     const userDataString = localStorage.getItem('userData');
     if (userDataString) {
       const userData = JSON.parse(userDataString);
+      localStorage.setItem('token', userData.userData.token);
       const usersData = {
         email: userData.userData.email,
         name: userData.userData.name,
@@ -65,5 +66,6 @@ export class AuthService {
 
   public logOut(){
     localStorage.removeItem('userData');
+    localStorage.removeItem('token');
   }
 }
