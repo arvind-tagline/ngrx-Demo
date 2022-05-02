@@ -7,6 +7,7 @@ import { LoginComponent } from '../login/login.component';
 // import { AuthReducer } from '../state/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../state/auth.effects';
+import { SignupComponent } from '../signup/signup.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'login',
         component:LoginComponent
+      },
+      {
+        path: 'signUp',
+        component: SignupComponent
       },
     ]
   },
