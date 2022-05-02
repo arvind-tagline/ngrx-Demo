@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppStates } from 'src/app/store/app.state';
+import { loadingSpinner } from 'src/app/store/shared.actions';
 import { updatePost } from '../state/posts.actions';
 import { getPostsById } from '../state/posts.selectors';
 
@@ -47,8 +48,12 @@ export class UpdatePostComponent implements OnInit,OnDestroy {
     };
 
     //dispatch the action
+    this.store.dispatch(loadingSpinner({ status: true }));
     this.store.dispatch(updatePost({ post }));
     this.router.navigate(['post']);
+    setTimeout(() => {
+      this.store.dispatch(loadingSpinner({ status: false }));
+    }, 1000)
   }
 
   ngOnDestroy(): void {

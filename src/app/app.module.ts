@@ -26,7 +26,7 @@ import { SpinnerComponent } from './Shared/spinner/spinner.component';
     BrowserModule,
     AppRoutingModule,
     // StoreModule.forRoot({ counter: counterReducer, posts:postsReducer }),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
     FormsModule,
     HttpClientModule,

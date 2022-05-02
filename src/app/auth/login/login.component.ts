@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppStates } from 'src/app/store/app.state';
+import { loadingSpinner } from 'src/app/store/shared.actions';
 import { loginStart } from '../state/auth.actions';
 
 @Component({
@@ -25,13 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   public onLogin() {
-    const loginValue = {
-      email: this.loginForm.value.eamil,
-      password:this.loginForm.value.password
-    }
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-
-    this.store.dispatch(loginStart({ email , password}))
+    this.store.dispatch(loadingSpinner({ status: true }));
+    this.store.dispatch(loginStart({ email, password }));
   }
 }
