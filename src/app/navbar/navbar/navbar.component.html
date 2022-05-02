@@ -13,11 +13,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" routerLink="/post">Post</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!(isAuthState | async)">
                     <a class="nav-link active" routerLink="auth">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="/">SignUp</a>
+                    <a class="nav-link active" *ngIf="!(isAuthState | async)" routerLink="/">SignUp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" *ngIf="isAuthState | async" routerLink="/">LogOut</a>
                 </li>
             </ul>
         </div>

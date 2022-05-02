@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppStates } from 'src/app/store/app.state';
 import { loadingSpinner } from 'src/app/store/shared.actions';
-import { getLoading } from 'src/app/store/shared.selectors';
 import { addPost } from '../state/posts.actions';
 
 @Component({
@@ -26,7 +25,6 @@ export class AddPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showLoading = this.store.select(getLoading);
   }
 
   public onAdd(): void{

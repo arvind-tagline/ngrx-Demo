@@ -13,6 +13,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { EffectsModule} from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './Shared/spinner/spinner.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SpinnerComponent } from './Shared/spinner/spinner.component';
     NavbarComponent,
     LoginComponent,
     SpinnerComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

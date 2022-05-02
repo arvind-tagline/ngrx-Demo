@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
 import { AppStates } from 'src/app/store/app.state';
+import { loadingSpinner } from 'src/app/store/shared.actions';
 import { deletePost } from '../state/posts.actions';
 import { getPosts, getPostsById } from '../state/posts.selectors';
 
@@ -42,8 +43,10 @@ export class PostsListComponent implements OnInit {
     if (confirm("Are you sure you want to delete this post.")) {
       this.store.dispatch(deletePost({ id }))
     }
-    this.deleteId = id;
-    console.log('this.deleteId', this.deleteId)
+    this.store.dispatch(loadingSpinner({ status: true }));
+    setTimeout(() => {
+      this.store.dispatch(loadingSpinner({ status: false }));
+    }, 1000)
   }
   // public deletePost() {
   //   this.store.dispatch(deletePost({this.deleteId}))
