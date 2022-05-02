@@ -12,8 +12,9 @@ import { appReducer } from './store/app.state';
 import { LoginComponent } from './auth/login/login.component';
 import { EffectsModule} from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { SpinnerComponent } from './Shared/spinner/spinner.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AuthEffects } from './auth/state/auth.effects';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     AppRoutingModule,
     // StoreModule.forRoot({ counter: counterReducer, posts:postsReducer }),
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

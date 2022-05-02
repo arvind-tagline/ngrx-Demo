@@ -5,8 +5,8 @@ import { LoginComponent } from '../login/login.component';
 // import { StoreModule } from '@ngrx/store';
 // import { AUTH_STATE_NAME } from '../state/auth.selectors';
 // import { AuthReducer } from '../state/auth.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { AuthEffects } from '../state/auth.effects';
+// import { EffectsModule } from '@ngrx/effects';
+// import { AuthEffects } from '../state/auth.effects';
 import { SignupComponent } from '../signup/signup.component';
 
 const routes: Routes = [
@@ -34,7 +34,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    EffectsModule.forFeature([AuthEffects]),
+    // EffectsModule.forFeature([]),
     // StoreModule.forFeature(AUTH_STATE_NAME,AuthReducer)
   ]
 })

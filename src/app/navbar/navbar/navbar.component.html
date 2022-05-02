@@ -20,7 +20,7 @@
                     <a class="nav-link active" *ngIf="!(isAuthState | async)" routerLink="auth/signUp">SignUp</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" *ngIf="isAuthState | async" routerLink="auth">LogOut</a>
+                    <a class="nav-link active" *ngIf="isAuthState | async" routerLink="auth" (click)="logOut($event)">LogOut</a>
                 </li>
             </ul>
         </div>

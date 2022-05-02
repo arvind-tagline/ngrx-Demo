@@ -21,7 +21,7 @@ export class AuthService {
     return this.http.post<AuthResponseSignUp>(environment.apiEndPoint + `/users/SignUp`, { name, email, password, role})
   }
 
-  formatUser(data: AuthResponseData) {
+  public formatUser(data: AuthResponseData) {
     const userData = {
       email: data.email,
       name: data.name,
@@ -32,7 +32,7 @@ export class AuthService {
     return user;
   }
 
-  formatUserSignUp(data: AuthResponseSignUpData) {
+  public formatUserSignUp(data: AuthResponseSignUpData) {
     const userData = {
       email: data.email,
       name: data.name,
@@ -41,5 +41,29 @@ export class AuthService {
     };
     const user = new User(userData);
     return user;
+  }
+
+  public setUserDataLocal(userData:User) {
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+
+  public getUserLocal() {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      const usersData = {
+        email: userData.userData.email,
+        name: userData.userData.name,
+        token: userData.userData.token,
+        role: userData.userData.role
+      };
+      const user = new User(usersData)
+      return user;
+    }
+    return null;
+  }
+
+  public logOut(){
+    localStorage.removeItem('userData');
   }
 }
