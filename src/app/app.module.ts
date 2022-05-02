@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthEffects } from './auth/state/auth.effects';
+import { GetallstudentComponent } from './ngrxWithApi/component/teacher/getallstudent/getallstudent.component';
+import { VerifystudentComponent } from './ngrxWithApi/component/teacher/verifystudent/verifystudent.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { AuthEffects } from './auth/state/auth.effects';
     LoginComponent,
     SpinnerComponent,
     SignupComponent,
+    GetallstudentComponent,
+    VerifystudentComponent,
   ],
   imports: [
     BrowserModule,
