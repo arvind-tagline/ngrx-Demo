@@ -1,7 +1,10 @@
-import { ExamData } from "src/app/models/exam.model";
+import { Exam, ExamData } from "src/app/models/exam.model";
 
 export interface ExamState{
-    exam: ExamData[]
+    student: ExamData[],
+    exam: Exam[],
+    teacherExam: Exam[],
+
 }
 
 export const initialState: ExamState = {
@@ -19,5 +22,7 @@ export const initialState: ExamState = {
     //         _id: '4', name: 'Test 4', email: 'This is a test 4 email', status: 'student'
     //     },
     // ]
-    exam:[]
+    student: [],
+    exam: [],
+    teacherExam: [],
 }

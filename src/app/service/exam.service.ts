@@ -13,15 +13,19 @@ export class ExamService {
 
   constructor(private http: HttpClient) {
     console.log('token', this.token)
-   }
-  
-  public getStudents():Observable<any> {
-    return this.http.get(environment.apiEndPoint + `/dashboard/Teachers`, { headers: this.header});
+  }
+
+  public getStudents(): Observable<any> {
+    return this.http.get(environment.apiEndPoint + `/dashboard/Teachers`, { headers: this.header });
   }
 
   public getExams(): Observable<any> {
-    return this.http.get(environment.apiEndPoint + `/dashboard/Teachers/viewExam`, { headers: this.header})
- }
+    return this.http.get(environment.apiEndPoint + `/dashboard/Teachers/viewExam`, { headers: this.header })
+  }
+
+  public getExamsForStudent(): Observable<any> {
+    return this.http.get(environment.apiEndPoint + `/student/studentExam`, { headers: this.header })
+  }
 }
 
 

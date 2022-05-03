@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadStudents } from 'src/app/ngrxWithApi/state/exam.actions';
-import { getAllExam } from 'src/app/ngrxWithApi/state/exam.selector';
+import { getAllStudent } from 'src/app/ngrxWithApi/state/exam.selector';
 
 @Component({
   selector: 'app-getallstudent',
@@ -15,7 +15,7 @@ export class GetallstudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadStudents());
-    this.store.select(getAllExam).subscribe((studentData: any) => {
+    this.store.select(getAllStudent).subscribe((studentData: any) => {
       this.allStudents = studentData;
       console.log('data :>> ', studentData);
     });
