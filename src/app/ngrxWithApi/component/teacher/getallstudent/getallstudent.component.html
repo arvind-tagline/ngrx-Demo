@@ -1,1 +1,26 @@
-<p>getallstudent works!</p>
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-11 border">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-center">Update</th>
+                    <th scope="col" class="text-center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of allStudents">
+                    <th scope="row">{{student._id}}</th>
+                    <td>{{student.name}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.status}}</td>
+                    <td class="text-center"><i class="far fa-edit text-warning"></i></td>
+                    <td class="text-center"><i class="fas fa-trash-alt text-danger"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

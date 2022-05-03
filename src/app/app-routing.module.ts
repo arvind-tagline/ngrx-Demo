@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren:()=> import('./posts/posts/posts.module').then(m => m.PostsModule)
   },
   {
+    path: 'exam',
+    loadChildren: () => import('./ngrxWithApi/exam/exam.module').then(m => m.ExamModule)
+  },
+  {
     path: '**',
     redirectTo:'auth'
   }

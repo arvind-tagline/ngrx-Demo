@@ -23,8 +23,6 @@ export class AuthEffects {
             return this.authService.login(actions.email, actions.password).pipe(map((data) => {
                 this.store.dispatch(loadingSpinner({ status: false }));
                 const user = this.authService.formatUser(data.data);
-                console.log('data', data);
-                console.log('user', user)
                 this.authService.setUserDataLocal(user);
                 return loginSuccess({ user,redirect:true })
             }),

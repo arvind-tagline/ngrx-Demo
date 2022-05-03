@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/posts.model';
+// import { loadPosts } from 'src/app/ngrxWithApi/state/exam.actions';
 import { AppStates } from 'src/app/store/app.state';
 import { loadingSpinner } from 'src/app/store/shared.actions';
 import { deletePost } from '../state/posts.actions';
@@ -24,7 +25,7 @@ export class PostsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts=this.store.select(getPosts);
-    // this.store.dispatch()
+    // this.store.dispatch();
   }
 
   public getPostId(postId:any) {
@@ -48,7 +49,4 @@ export class PostsListComponent implements OnInit {
       this.store.dispatch(loadingSpinner({ status: false }));
     }, 1000)
   }
-  // public deletePost() {
-  //   this.store.dispatch(deletePost({this.deleteId}))
-  // }
 }
