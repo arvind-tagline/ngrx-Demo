@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadStudents } from 'src/app/ngrxWithApi/state/exam.actions';
 import { getAllStudent } from 'src/app/ngrxWithApi/state/exam.selector';
+import { loadingSpinner } from 'src/app/store/shared.actions';
 
 @Component({
   selector: 'app-getallstudent',
@@ -14,12 +15,15 @@ export class GetallstudentComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.store.dispatch(loadingSpinner({ status: true }));
     this.store.dispatch(loadStudents());
     this.store.select(getAllStudent).subscribe((studentData: any) => {
       this.allStudents = studentData;
       console.log('data :>> ', studentData);
     });
-    console.log('this.allStudent', this.allStudents)
+    setTimeout(() => {
+      this.store.dispatch(loadingSpinner({ status: false }));
+    }, 1000);
   }
 
 }

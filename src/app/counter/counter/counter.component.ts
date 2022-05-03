@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { loadingSpinner } from 'src/app/store/shared.actions';
 
 @Component({
   selector: 'app-counter',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class CounterComponent implements OnInit {
 
   // public counter: number = 0;
-  constructor() { }
+  constructor(private store:Store) { }
 
   ngOnInit(): void {
+    this.store.dispatch(loadingSpinner({ status: true }));
+    setTimeout(() => {
+      this.store.dispatch(loadingSpinner({ status: false }));
+    }, 1000);
   }
 
 

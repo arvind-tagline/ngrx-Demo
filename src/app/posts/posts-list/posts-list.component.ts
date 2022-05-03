@@ -24,7 +24,11 @@ export class PostsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts=this.store.select(getPosts);
+    this.store.dispatch(loadingSpinner({ status: true }));
+    this.posts = this.store.select(getPosts);
+    setTimeout(() => {
+      this.store.dispatch(loadingSpinner({ status: false }));
+    }, 1000)
     // this.store.dispatch();
   }
 
