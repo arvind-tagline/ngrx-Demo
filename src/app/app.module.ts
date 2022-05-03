@@ -17,6 +17,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AuthEffects } from './auth/state/auth.effects';
 import { GetallstudentComponent } from './ngrxWithApi/component/teacher/getallstudent/getallstudent.component';
 import { VerifystudentComponent } from './ngrxWithApi/component/teacher/verifystudent/verifystudent.component';
+import { AllExamComponent } from './ngrxWithApi/component/student/all-exam/all-exam.component';
+import { PostApiListComponent } from './postWithApi/components/post-api-list/post-api-list.component';
 
 
 @NgModule({
@@ -26,8 +28,8 @@ import { VerifystudentComponent } from './ngrxWithApi/component/teacher/verifyst
     LoginComponent,
     SpinnerComponent,
     SignupComponent,
-    GetallstudentComponent,
-    VerifystudentComponent,
+    AllExamComponent,
+    PostApiListComponent,
   ],
   imports: [
     BrowserModule,

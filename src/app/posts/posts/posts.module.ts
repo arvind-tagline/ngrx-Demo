@@ -39,7 +39,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('posts', postsReducer),
-    EffectsModule.forFeature([ExamEffects])
+    // EffectsModule.forFeature([ExamEffects])
 
   ]
 })
