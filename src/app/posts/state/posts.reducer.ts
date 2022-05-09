@@ -3,6 +3,7 @@ import { addPost, deletePost, updatePost } from "./posts.actions";
 import { initialState } from "./posts.state";
 
 const _postsReducer = createReducer(initialState, on(addPost, (state, action) => {
+    console.log('action', action)
     let post = { ...action.post };
     post.id = (state.posts.length + 1).toString();
     return {
@@ -18,9 +19,11 @@ const _postsReducer = createReducer(initialState, on(addPost, (state, action) =>
         posts:upDatedPosts,
     }
 }), on(deletePost, (state, { id }) => {
+    console.log('state', state)
     const updatedPost = state.posts.filter((post) => {
         return post.id !== id;
     });
+    console.log('updatedPost :>> ', updatedPost);
     return {
         ...state,
         posts:updatedPost

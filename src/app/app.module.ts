@@ -19,6 +19,8 @@ import { GetallstudentComponent } from './ngrxWithApi/component/teacher/getallst
 import { VerifystudentComponent } from './ngrxWithApi/component/teacher/verifystudent/verifystudent.component';
 import { AllExamComponent } from './ngrxWithApi/component/student/all-exam/all-exam.component';
 import { PostApiListComponent } from './postWithApi/components/post-api-list/post-api-list.component';
+import { AddPostWithApiComponent } from './postWithApi/components/add-post-with-api/add-post-with-api.component';
+import { UpdatePostWithApiComponent } from './postWithApi/components/update-post-with-api/update-post-with-api.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { PostApiListComponent } from './postWithApi/components/post-api-list/pos
     SignupComponent,
     AllExamComponent,
     PostApiListComponent,
+    AddPostWithApiComponent,
+    UpdatePostWithApiComponent,
   ],
   imports: [
     BrowserModule,

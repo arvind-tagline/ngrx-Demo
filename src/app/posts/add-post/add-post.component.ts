@@ -33,8 +33,10 @@ export class AddPostComponent implements OnInit {
       description: this.postForm.value.description
     }
     this.store.dispatch(loadingSpinner({ status: true }));
+    
     this.store.dispatch(addPost({ post }));
     this.postForm.reset();
+
     setTimeout(() => {
       this.store.dispatch(loadingSpinner({ status: false }));
     },1000)

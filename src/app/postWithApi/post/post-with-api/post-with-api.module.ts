@@ -7,11 +7,23 @@ import { postApiReducer } from '../../store/postapi.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PostApiEffects } from '../../store/postapi.effects';
 import { PostApiListComponent } from '../../components/post-api-list/post-api-list.component';
+import { AddPostWithApiComponent } from '../../components/add-post-with-api/add-post-with-api.component';
+import { UpdatePostWithApiComponent } from '../../components/update-post-with-api/update-post-with-api.component';
 
 const routes: Routes = [
   {
     path: '',
-    component:PostApiListComponent
+    component: PostApiListComponent,
+    children: [
+      {
+        path: 'add',
+        component:AddPostWithApiComponent
+      },
+      {
+        path: 'update/:id',
+        component: UpdatePostWithApiComponent
+      }
+    ]
   }
 
 ];

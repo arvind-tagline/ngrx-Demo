@@ -6,7 +6,7 @@ export interface Post{
 
 export interface Posts{
     userId: number;
-    id: number;
+    id?: number;
     title: string;
     body: string;
 }
