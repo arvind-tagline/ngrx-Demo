@@ -21,6 +21,7 @@ import { AllExamComponent } from './ngrxWithApi/component/student/all-exam/all-e
 import { PostApiListComponent } from './postWithApi/components/post-api-list/post-api-list.component';
 import { AddPostWithApiComponent } from './postWithApi/components/add-post-with-api/add-post-with-api.component';
 import { UpdatePostWithApiComponent } from './postWithApi/components/update-post-with-api/update-post-with-api.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { UpdatePostWithApiComponent } from './postWithApi/components/update-post
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreDevtoolsModule.instrument({ logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
