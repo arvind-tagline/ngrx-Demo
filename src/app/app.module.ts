@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 import { appReducer } from './store/app.state';
 import { LoginComponent } from './auth/login/login.component';
 import { EffectsModule} from '@ngrx/effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthEffects } from './auth/state/auth.effects';

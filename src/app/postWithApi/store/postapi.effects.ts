@@ -20,7 +20,7 @@ export class PostApiEffects {
 
     addPostApi$ = createEffect(() => {
         return this.actions$.pipe(ofType(addPostApi),
-            exhaustMap((actions: any) => {
+            mergeMap((actions: any) => {
                 return this.postApiService.addPost(actions.postApi).pipe(
                     map((data) => {
                         const addPost = {
@@ -51,10 +51,10 @@ export class PostApiEffects {
             switchMap((action) => {
                 return this.postApiService.deletePost(action.id).pipe(
                     map((data) => {
-                        return deletePostSuccess({id:action.id})
+                        return deletePostSuccess({ id: action.id })
                     })
-                )
-            }))
-    })
+                );
+            }));
+    });
 
 }

@@ -45,6 +45,9 @@ export class AuthService {
 
   public setUserDataLocal(userData:User) {
     localStorage.setItem('userData', JSON.stringify(userData));
+    const userDataString = localStorage.getItem('userData');
+    const userToken = JSON.parse(userDataString||'');
+    localStorage.setItem('token', userToken.userData.token);
   }
 
   public getUserLocal() {
@@ -67,5 +70,13 @@ export class AuthService {
   public logOut(){
     localStorage.removeItem('userData');
     localStorage.removeItem('token');
+  }
+
+  public checkToken() {
+    if (!localStorage.getItem('token')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

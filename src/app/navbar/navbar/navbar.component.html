@@ -23,13 +23,13 @@
                     <a class="nav-link active" routerLink="/exam/allExam">Exam For Student</a>
                 </li>
                 <li class="nav-item" *ngIf="!(isAuthState | async)">
-                    <a class="nav-link active" routerLink="auth">Login</a>
+                    <a class="nav-link active" routerLink="">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" *ngIf="!(isAuthState | async)" routerLink="auth/signUp">SignUp</a>
+                    <a class="nav-link active" *ngIf="!(isAuthState | async)" routerLink="/signUp">SignUp</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" *ngIf="isAuthState | async" routerLink="auth" (click)="logOut($event)">LogOut</a>
+                    <a class="nav-link active" *ngIf="isAuthState | async" routerLink="" (click)="logOut($event)">LogOut</a>
                 </li>
             </ul>
         </div>

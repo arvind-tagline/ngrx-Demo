@@ -64,7 +64,7 @@ export class AuthEffects {
         return this.actions$.pipe(ofType(signUpSuccess),
             tap((action) => {
                 if (action.redirect) {
-                    this.router.navigate(['/auth/login']);
+                    this.router.navigate(['/login']);
                 }
             })
         )
@@ -83,7 +83,7 @@ export class AuthEffects {
     logout$ = createEffect(() => {
         return this.actions$.pipe(ofType(logout), map((actions: any) => {
             this.authService.logOut();
-            this.router.navigate(['auth'])
+            this.router.navigate(['/'])
         })
         )
     }, { dispatch: false });
