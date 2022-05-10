@@ -13,7 +13,12 @@ export class PostApiListComponent implements OnInit {
 
   public postApiData: any;
   public postId: any;
-  constructor(private store:Store) { }
+  public singlePost: any;
+  public deletId!: any;
+  public userAllPost: any;
+  public userId: any;
+
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     // this.store.dispatch(loadingSpinner({ status: true }));
@@ -28,6 +33,9 @@ export class PostApiListComponent implements OnInit {
   public getPostId(postId: any) {
     this.postId = postId;
   }
+  public deleteId(id:any) {
+    this.deletId = id;
+  }
 
   // public updatePost() {
   //   const postId = this.postId;
@@ -37,15 +45,26 @@ export class PostApiListComponent implements OnInit {
   //   console.log('this.postId', this.postId);
   // }
 
-  public deletePostId(id: any) {
-    console.log('id :>> ', id);
-    if (confirm("Are you sure you want to delete this post.")) {
-      this.store.dispatch(deletePost({ id }))
-    }
+  
+  public getSinglePost(id: any, userId: any) {
+    this.userId = userId;
+    this.singlePost = this.postApiData.find((post: any) => post.id === id)
+  }
+  
+  public getUserAllPost() {
+    this.userAllPost = this.postApiData.filter((post: any) => post.userId === this.userId);
+  }
+  
+  public deletePostId() {
+    this.store.dispatch(deletePost({ id:this.deletId }))
+    // if (confirm("Are you sure you want to delete this post.")) {
+    // }
     // this.store.dispatch(loadingSpinner({ status: true }));
     // setTimeout(() => {
     //   this.store.dispatch(loadingSpinner({ status: false }));
     // }, 1000)
   }
+
+
 
 }
