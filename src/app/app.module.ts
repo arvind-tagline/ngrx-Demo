@@ -22,6 +22,7 @@ import { PostApiListComponent } from './postWithApi/components/post-api-list/pos
 import { AddPostWithApiComponent } from './postWithApi/components/add-post-with-api/add-post-with-api.component';
 import { UpdatePostWithApiComponent } from './postWithApi/components/update-post-with-api/update-post-with-api.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CustomSerializer } from './store/router/custom-serializer';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     HttpClientModule,
     ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({serializer:CustomSerializer,})
   ],
   providers: [],
   bootstrap: [AppComponent]
