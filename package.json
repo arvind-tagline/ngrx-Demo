@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:heroku": "node dist/server"
   },
   "private": true,
   "dependencies": {
@@ -40,5 +41,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.2"
+  },
+  "engines": {
+    "node":"v14.19.0",
+    "npm":"6.14.16"
   }
 }
