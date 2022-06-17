@@ -3,6 +3,8 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { PostapiService } from "src/app/service/postapi.service";
 import { addPostApi, addPostApiSuccess, deletePost, deletePostSuccess, loadPostApi, loadPostApiSuccess, updatePost, updatePostSuccess } from "./postapi.actions";
 import { map, exhaustMap, tap, mergeMap, switchMap } from "rxjs";
+import { Update } from "@ngrx/entity";
+import { Posts } from "src/app/models/posts.model";
 
 @Injectable()
 export class PostApiEffects {
@@ -39,6 +41,14 @@ export class PostApiEffects {
             switchMap((action) => {
                 return this.postApiService.upDatePost(action.postApi).pipe(
                     map((data) => {
+                        // const updateApiPost: Update<Posts> = {
+                        //     id: data.id,
+                        //     changes: {
+                        //         ...action.postApi
+                        //     }
+                        // }
+                        // return updatePostSuccess({ postApi: updateApiPost });
+
                         return updatePostSuccess({ postApi: action.postApi });
                     })
                 );

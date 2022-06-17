@@ -18,6 +18,7 @@ export class GetallstudentComponent implements OnInit {
     this.store.dispatch(loadingSpinner({ status: true }));
     this.store.dispatch(loadStudents());
     this.store.select(getAllStudent).subscribe((studentData: any) => {
+      console.log('studentData :>> ', studentData);
       this.allStudents = studentData;
       console.log('data :>> ', studentData);
     });
