@@ -21,29 +21,33 @@ export class UpdatePostWithApiComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.UpdateForm();
-    this.subscriptions=this.store.select(getPostsById).subscribe((posts: any) => {
-      if (posts) {
-        this.postData = posts;
-        this.updatePostForm.patchValue({
-          userId: this.postData?.userId,
-          title: this.postData?.title,
-          body: this.postData?.body
-        })
-      }
-    })
-
-    //using router get data for update
-    // this.route.paramMap.subscribe((params: any) => {
-    //   const id = params.get('id');
-    //   this.store.select(getPostsById, { id }).subscribe((data) => {
-    //     this.postData = data;
-    //     this.updatePostForm = this.fb.group({
+    // this.subscriptions=this.store.select(getPostsById).subscribe((posts: any) => {
+    //   if (posts) {
+    //     console.log('posts', posts)
+    //     this.postData = posts;
+    //     this.updatePostForm.patchValue({
+    //       userId: this.postData?.userId,
     //       title: this.postData?.title,
-    //       body:this.postData?.body,
-    //       userId: this.postData?.userId
-    //     });
-    //   });
-    // });
+    //       body: this.postData?.body
+    //     })
+    //   }
+    // })
+
+    // using router get data for update
+    
+    this.route.paramMap.subscribe((params: any) => {
+      const id = parseInt(params.get('id'));
+      this.store.select(getPostsById , {id}).subscribe((data) => {
+        if (data) {
+          this.postData = data;
+          this.updatePostForm = this.fb.group({
+            title: this.postData?.title,
+            body:this.postData?.body,
+            userId: this.postData?.userId
+          });
+        }
+      });
+    });
   }
 
 

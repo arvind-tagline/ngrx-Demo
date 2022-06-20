@@ -22,7 +22,6 @@ export class PostapiService {
   }
 
   public deletePost(id: any): Observable<any> {
-    console.log('id :>> ', id);
     return this.http.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
   }
 }

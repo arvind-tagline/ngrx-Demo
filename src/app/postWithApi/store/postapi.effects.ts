@@ -41,15 +41,14 @@ export class PostApiEffects {
             switchMap((action) => {
                 return this.postApiService.upDatePost(action.postApi).pipe(
                     map((data) => {
-                        // const updateApiPost: Update<Posts> = {
-                        //     id: data.id,
-                        //     changes: {
-                        //         ...action.postApi
-                        //     }
-                        // }
-                        // return updatePostSuccess({ postApi: updateApiPost });
+                        const updateApiPost: Update<Posts> = {
+                            id: data.id,
+                            changes: data
+                        }
+                        return updatePostSuccess({ postApi: updateApiPost });
 
-                        return updatePostSuccess({ postApi: action.postApi });
+                        //without adapter
+                        // return updatePostSuccess({ postApi: action.postApi });
                     })
                 );
             })
