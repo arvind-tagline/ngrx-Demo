@@ -23,6 +23,7 @@ import { AddPostWithApiComponent } from './postWithApi/components/add-post-with-
 import { UpdatePostWithApiComponent } from './postWithApi/components/update-post-with-api/update-post-with-api.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer } from './store/router/custom-serializer';
+import { ShowAllExamComponent } from './ngrxWithApi/component/teacher/show-all-exam/show-all-exam.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CustomSerializer } from './store/router/custom-serializer';
     PostApiListComponent,
     AddPostWithApiComponent,
     UpdatePostWithApiComponent,
+    ShowAllExamComponent,
   ],
   imports: [
     BrowserModule,

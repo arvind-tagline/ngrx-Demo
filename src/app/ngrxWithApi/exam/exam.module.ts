@@ -9,6 +9,7 @@ import { examReducer } from '../state/exam.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ExamEffects } from '../state/exam.effects';
 import { AllExamComponent } from '../component/student/all-exam/all-exam.component';
+import { ShowAllExamComponent } from '../component/teacher/show-all-exam/show-all-exam.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,12 @@ const routes: Routes = [
   {
     path: 'allExam',
     component:AllExamComponent
-  }, {
+  },
+  {
+    path: 'showAllExam',
+    component :ShowAllExamComponent
+  },
+  {
     path: '**',
     redirectTo:''
   }

@@ -1,11 +1,15 @@
+import { createEntityAdapter, EntityState } from "@ngrx/entity";
 import { Exam, ExamData } from "src/app/models/exam.model";
 
 export interface ExamState{
-    student: ExamData[],
-    exam: Exam[],
-    teacherExam: Exam[],
+    payload: any[],
+    // exam: Exam[],
+    // teacherExam: Exam[],
 
 }
+
+// export interface ExamState extends EntityState<ExamData>{ }
+
 
 export const initialState: ExamState = {
     // exam: [
@@ -22,7 +26,10 @@ export const initialState: ExamState = {
     //         _id: '4', name: 'Test 4', email: 'This is a test 4 email', status: 'student'
     //     },
     // ]
-    student: [],
-    exam: [],
-    teacherExam: [],
+    payload: [],
+    // exam: [],
+    // teacherExam: [],
 }
+
+// export const examAdapter= createEntityAdapter<ExamData>()
+// export const initialState :ExamState=examAdapter.getInitialState();
