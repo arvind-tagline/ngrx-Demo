@@ -20,7 +20,6 @@ export class ShowAllExamComponent implements OnInit {
     this.store.dispatch(loadExamForTeacher());
     this.store.select(getAllExamForTeacher).subscribe((res) => {
       this.showAllExam = res;
-      console.log('res', res)
     });
 
 

@@ -2,13 +2,11 @@ import { createEntityAdapter, EntityState } from "@ngrx/entity";
 import { Exam, ExamData } from "src/app/models/exam.model";
 
 export interface ExamState{
-    payload: any[],
-    // exam: Exam[],
-    // teacherExam: Exam[],
-
+    student: ExamData[],
+    exam: Exam[],
+    teacherExam: Exam[],
 }
 
-// export interface ExamState extends EntityState<ExamData>{ }
 
 
 export const initialState: ExamState = {
@@ -26,10 +24,15 @@ export const initialState: ExamState = {
     //         _id: '4', name: 'Test 4', email: 'This is a test 4 email', status: 'student'
     //     },
     // ]
-    payload: [],
-    // exam: [],
-    // teacherExam: [],
+    student: [],
+    exam: [],
+    teacherExam: [],
 }
 
-// export const examAdapter= createEntityAdapter<ExamData>()
+
+
+// using adapter this is not working
+// export interface ExamState extends EntityState<any>{ }
+
+// export const examAdapter= createEntityAdapter<any>()
 // export const initialState :ExamState=examAdapter.getInitialState();

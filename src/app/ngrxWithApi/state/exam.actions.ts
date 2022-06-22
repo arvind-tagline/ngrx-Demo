@@ -13,10 +13,10 @@ export const LOAD_EXAM_FOR_TEACHER_SUCCESS = '[exam page] load exam for teacher 
 
 
 export const loadStudents = createAction(LOAD_STUDENTS);
-export const loadStudentsSuccess = createAction(LOAD_STUDENTS_SUCCESS, props<{ payload: any[] }>());
+export const loadStudentsSuccess = createAction(LOAD_STUDENTS_SUCCESS, props<{ student: ExamData[] }>());
 
 export const loadExam = createAction(LOAD_EXAM);
-export const loadExamSuccess = createAction(LOAD_EXAM_SUCCESS, props<{ payload: any[] }>());
+export const loadExamSuccess = createAction(LOAD_EXAM_SUCCESS, props<{ exam: Exam[] }>());
 
 export const loadExamForTeacher = createAction(LOAD_EXAM_FOR_TEACHER);
-export const loadExamForTeacherSuccess = createAction(LOAD_EXAM_FOR_TEACHER_SUCCESS, props<{ payload: any[]}>());
+export const loadExamForTeacherSuccess = createAction(LOAD_EXAM_FOR_TEACHER_SUCCESS, props<{ teacherExam: Exam[]}>());

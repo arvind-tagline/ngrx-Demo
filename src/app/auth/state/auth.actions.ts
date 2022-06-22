@@ -23,3 +23,7 @@ export const signUpFail = createAction(SIGNUP_FAIL);
 export const autoLogin = createAction(AUTO_LOGIN);
 export const logout = createAction(LOGOUT_ACTION);
 
+
+
+export const dummyAction = createAction('[dummy action]');
+

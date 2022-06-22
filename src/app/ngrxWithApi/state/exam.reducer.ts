@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { loadExam, loadExamForTeacher, loadExamForTeacherSuccess, loadExamSuccess, loadStudents, loadStudentsSuccess } from "./exam.actions";
-import { initialState } from "./exam.state";
+import {  initialState } from "./exam.state";
 
 const _examReducer = createReducer(initialState,
     on(loadStudents, (state: any) => {
@@ -9,9 +9,11 @@ const _examReducer = createReducer(initialState,
         }
     }),
     on(loadStudentsSuccess, (state: any, action: any) => {
+        // return examAdapter.setAll(action.payload, state);
+
         return {
             ...state,
-            payload: action.payload
+            student: action.student
         }
     }), 
     on(loadExam, (state: any) => {
@@ -20,9 +22,11 @@ const _examReducer = createReducer(initialState,
         }
     }), 
     on(loadExamSuccess, (state: any, action: any) => {
+        // return examAdapter.setAll(action.payload, state);
+
         return {
             ...state,
-            payload: action.payload
+            exam: action.exam
         }
     }),
     on(loadExamForTeacher, (state: any, action: any) => {
@@ -31,9 +35,11 @@ const _examReducer = createReducer(initialState,
         }
     }),
     on(loadExamForTeacherSuccess, (state: any, action: any) => {
+        // return examAdapter.setAll(action.payload, state);
+        
         return {
             ...state,
-            payload: action.payload
+            teacherExam: action.teacherExam
         }
     })
 )

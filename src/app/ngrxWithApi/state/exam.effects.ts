@@ -17,7 +17,7 @@ export class ExamEffects {
             // withLatestFrom(this.store.select()),
             mergeMap((action: any) => {
             return this.examService.getStudents().pipe(map((data) => {
-                return loadStudentsSuccess({ payload: data.data })
+                return loadStudentsSuccess({ student: data.data })
             })
             )
         }))
@@ -27,7 +27,7 @@ export class ExamEffects {
     loadExamForStudent$ = createEffect(() => {
         return this.actions$.pipe(ofType(loadExam), mergeMap((action) => {
             return this.examService.getExamsForStudent().pipe(map((data) => {
-                return loadExamSuccess({ payload: data.data })
+                return loadExamSuccess({ exam: data.data })
             }))
         }))
     });
@@ -35,7 +35,7 @@ export class ExamEffects {
     loadExamForTeacher$ = createEffect(() => {
         return this.actions$.pipe(ofType(loadExamForTeacher), mergeMap((action) => {
             return this.examService.getExams().pipe(map((data) => {
-                return loadExamForTeacherSuccess({ payload: data.data })
+                return loadExamForTeacherSuccess({ teacherExam: data.data })
             }))
         }))
     })
